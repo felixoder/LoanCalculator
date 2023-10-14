@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Loan Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* CSS feature */
+    button {
+      background-color: green;
+      font-weight: 700;
+      color: white;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    /* Other CSS styles */
+    .output{
+      font-weight: bold;
+    }
+    #payment{
+      text-decoration: underline;
+    }
+    #graph{
+      border: 1px solid black;
+    }
+    th, td{
+      vertical-align: top;
+    }
+
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      margin-top: 50px;
+    }
+    footer{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        margin-top: 50px;
+        
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <table>
+      <tr>
+        <th> Enter Loan Data</th>
+        <td></td>
+        <th>Loan Balance , Cumulative Equity , and Interests Payments</th>
+      </tr>
+      <tr><td>Amount of Loan ($):</td>
+        <td><input id="amount" onchange="calculate();"></td>
+        <td rowspan="8">
+          <canvas id="graph" width="400" height="250"></canvas>
+        </td></tr>
+      <tr>
+        <td>Annual Interest (%):</td>
+        <td><input id="apr" onchange="calculate();"></td>
+      </tr>
+      <tr><td>Repayment period (years):</td>
+        <td><input id="years" onchange="calculate();"></td>
+      </tr>
+      <tr><td>ZipCode (to find lenders):</td>
+        <td><input id="zipcode" onchange="calculate();"></td>
+      </tr>
+      <tr><th>Approximate Payments:</th>
+        <td><button onclick="calculate();">Calculate</button></td></tr>
+      <tr><td>Monthly Payments:</td>
+        <td> $<span class="output" id="payment"></span></td></tr>
+      <tr><td>Total Payment:</td>
+        <td>$<span class="output" id="total"></span></td></tr>
+      <tr><td>Total Interest:</td>
+        <td>$<span class="output" id="totalinterest"></span>  </td>
+      </tr>
+      <tr><th>Sponcers:</th>
+        <td colspan="2">
+          Apply for your loan with one of these fine lenders:
+          <div id="lenders">
+           
+        </td></tr>
+    </table>
+</div>
+
+    <footer>
+        Made by Debayan Ghosh &copy; 
+        <div class="contact">
+            Contact Me 
+            <i class="fa-brands fa-github"onclick="contact();"></i>
+            <i class="fa-regular fa-user"onclick="contactl();"></i>
+            
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
